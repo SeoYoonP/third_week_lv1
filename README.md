@@ -1,4 +1,4 @@
-# third_week_lv1<br>
+# third_week_lv1
 # [Git] Commit Message Convention
 
 | Type                | Description                                                                  |
