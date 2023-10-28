@@ -1,10 +1,15 @@
 package com.example.springassignmentlv1.controller;
 
-import com.example.springassignmentlv1.dto.PostRequestDTO;
-import com.example.springassignmentlv1.dto.PostResponseDTO;
+import ch.qos.logback.core.encoder.EchoEncoder;
+import com.example.springassignmentlv1.dto.PostRequestDto;
+import com.example.springassignmentlv1.dto.PostResponseDto;
 import com.example.springassignmentlv1.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,7 +18,39 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("")
-    public PostResponseDTO createPost(@RequestBody PostRequestDTO requestDto) {
-        return postService.createPost(requestDto);
+    public PostResponseDto createPost(@RequestBody PostRequestDto postRequestDto) {
+        return postService.createPost(postRequestDto);
+    }
+
+    @GetMapping("")
+    public List<PostResponseDto> getPosts() {
+        return postService.getPosts();
+    }
+
+    @GetMapping("/{postId}")
+    public PostResponseDto getPost(@PathVariable Long postId) {
+        return postService.getPost(postId);
+    }
+
+    @PutMapping("/{postId}")
+    public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
+        PostResponseDto postResponseDto;
+        try {
+            postResponseDto = postService.updatePost(postId, postRequestDto);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return new ResponseEntity<>(postResponseDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
+        try {
+            postService.deletePost(postId, postRequestDto);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>("삭제성공!", HttpStatus.OK);
     }
 }
