@@ -19,4 +19,4 @@
 
 ------------------------------------------------------------------------------<br>
 
-유즈케이스, API, ERD 링크 : https://seoyoonps-para-space.notion.site/1-9ffb28f6846f474e84364d7dbd096dcc?pvs=4
+유즈케이스, API, ERD 링크 : [https://seoyoonps-para-space.notion.site/1-9ffb28f6846f474e84364d7dbd096dcc?pvs=4](https://incredible-occupation-492.notion.site/Spring-Lv1-54c7ecd3247640e1a39c19572884fbe9?pvs=4)https://incredible-occupation-492.notion.site/Spring-Lv1-54c7ecd3247640e1a39c19572884fbe9?pvs=4
