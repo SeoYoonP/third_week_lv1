@@ -33,8 +33,14 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
-    public PostResponseDto updatePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
-        return postService.updatePost(postId, postRequestDto);
+    public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
+        PostResponseDto postResponseDto;
+        try {
+            postResponseDto = postService.updatePost(postId, postRequestDto);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return new ResponseEntity<>(postResponseDto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{postId}")
@@ -42,7 +48,7 @@ public class PostController {
         try {
             postService.deletePost(postId, postRequestDto);
         } catch (Exception e) {
-            return new ResponseEntity<>("비밀번호가 일치하지 않습니다", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>("삭제성공!", HttpStatus.OK);
