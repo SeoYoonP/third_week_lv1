@@ -1,5 +1,4 @@
 # third_week_lv1<br>
-------------------------------------------------------------------------------<br>
 <b> [Git] Commit Message Convention <b><br>
 Feat: 새로운 기능을 추가<br>
 Fix: 버그 수정<br>
