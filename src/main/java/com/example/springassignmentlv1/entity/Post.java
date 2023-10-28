@@ -24,10 +24,16 @@ public class Post extends Timestamped {
     @Column
     private String contents;
 
-    public Post(PostRequestDto requestDTO) {
-        this.title = requestDTO.getTitle();
-        this.author = requestDTO.getAuthor();
-        this.contents = requestDTO.getContents();
-        this.password = requestDTO.getPassword();
+    public Post(PostRequestDto postRequestDto) {
+        this.title = postRequestDto.getTitle();
+        this.author = postRequestDto.getAuthor();
+        this.contents = postRequestDto.getContents();
+        this.password = postRequestDto.getPassword();
+    }
+
+    public void update(PostRequestDto postRequestDto) {
+        this.title = postRequestDto.getTitle();
+        this.author = postRequestDto.getAuthor();
+        this.contents = postRequestDto.getContents();
     }
 }
