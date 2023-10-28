@@ -3,7 +3,7 @@ package com.example.springassignmentlv1.dto;
 import lombok.Getter;
 
 @Getter
-public class PostRequestDTO {
+public class PostRequestDto {
     private Long id;
     private String password;
     private String title;

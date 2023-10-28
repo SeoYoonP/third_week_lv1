@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-public class PostResponseDTO {
+public class PostResponseDto {
     private Long id;
     private String title;
     private String password;
@@ -17,7 +17,7 @@ public class PostResponseDTO {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
-    public PostResponseDTO(Post post) {
+    public PostResponseDto(Post post) {
         this.id = post.getId();
         this.title = post.getTitle();
         this.password = post.getPassword();
