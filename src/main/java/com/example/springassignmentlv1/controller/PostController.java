@@ -1,6 +1,5 @@
 package com.example.springassignmentlv1.controller;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import com.example.springassignmentlv1.dto.PostRequestDto;
 import com.example.springassignmentlv1.dto.PostResponseDto;
 import com.example.springassignmentlv1.service.PostService;
@@ -48,9 +47,9 @@ public class PostController {
         try {
             postService.deletePost(postId, postRequestDto);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("삭제 실패", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>("삭제성공!", HttpStatus.OK);
+        return new ResponseEntity<>("삭제 성공!", HttpStatus.OK);
     }
 }

@@ -47,16 +47,16 @@ public class PostService {
         return new PostResponseDto(post);
     }
 
-    private Post findPost(Long postId) {
-        return postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글입니다."));
-    }
-
     public void deletePost(Long postId, PostRequestDto postRequestDto) {
         Post post = findPost(postId);
         if (!post.getPassword().equals(postRequestDto.getPassword())) {
             throw new IllegalArgumentException("비밀번호가 일치하지 않습니다");
         }
         postRepository.delete(post);
+    }
+
+    private Post findPost(Long postId) {
+        return postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글입니다."));
     }
 }
