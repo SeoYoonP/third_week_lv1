@@ -49,7 +49,6 @@ public class PostController {
         } catch (Exception e) {
             return new ResponseEntity<>("삭제 실패", HttpStatus.BAD_REQUEST);
         }
-
         return new ResponseEntity<>("삭제 성공!", HttpStatus.OK);
     }
 }
