@@ -32,7 +32,7 @@ public class PostController {
     }
 
     @PutMapping("/{postId}")
-    public ResponseEntity<?> updatePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
+    public ResponseEntity<Object> updatePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
         PostResponseDto postResponseDto;
         try {
             postResponseDto = postService.updatePost(postId, postRequestDto);
@@ -43,7 +43,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{postId}")
-    public ResponseEntity<?> deletePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
+    public ResponseEntity<Object> deletePost(@PathVariable Long postId, @RequestBody PostRequestDto postRequestDto) {
         try {
             postService.deletePost(postId, postRequestDto);
         } catch (Exception e) {
