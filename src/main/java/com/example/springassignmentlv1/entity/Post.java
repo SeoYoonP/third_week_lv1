@@ -15,13 +15,13 @@ public class Post extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private String title;
-    @Column
+    @Column(nullable = false)
     private String password;
-    @Column
+    @Column(nullable = false)
     private String author;
-    @Column
+    @Column(nullable = false)
     private String contents;
 
     public Post(PostRequestDto postRequestDto) {
